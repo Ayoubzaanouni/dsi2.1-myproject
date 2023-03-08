@@ -38,4 +38,20 @@ class MainController extends AbstractController
             'controller_name' => 'MainController',
         ]);*/
     }
+    #[Route('/', name: 'app_accueil')]
+    public function accueil(): Response
+    {
+       
+       return $this->render('main/accueil.html.twig', [
+            'controller_name' => 'MainController',
+        ]);
+    }
+    #[Route('/somme/{a}/{b}', name: 'app_somme')]
+    public function somme($a,$b): Response
+    {
+       $somme = $a + $b;
+       return $this->render('main/somme.html.twig', [
+            'nb1'=> $a, 'nb2' => $b, 'som'=> $somme
+        ]);
+    }
 }
