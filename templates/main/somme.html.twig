@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-   <h1>Bienvenue dans la page somme</h1>
+{% extends 'base.html.twig' %}
+
+{% block body %}
+     <h1>Bienvenue dans la page somme</h1>
    La somme de {{ nb1 }} + {{ nb2 }} est : {{ som }}
-  </body>
-</html>
+{% endblock %}
