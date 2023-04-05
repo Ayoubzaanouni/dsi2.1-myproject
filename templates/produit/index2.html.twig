@@ -1,0 +1,32 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Liste produit{% endblock %}
+
+{% block body %}
+<h1> Le produit</h1>
+<div class="container">
+   
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Nom</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+
+  
+        
+        <tr>
+      <th scope="row">{{ produit.id }}</th>
+      <td>{{ produit.nom }}</td>
+      
+    </tr>
+   
+ </tbody>
+</table>
+</div>
+
+{% endblock %}

@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base2.html.twig' %}
 
 {% block body %}
    <h1>Bienvenue sur notr site</h1>
@@ -6,4 +6,5 @@
    <a href="{{ path('app_main') }}">Aller vers main</a><br>
 
    <a href="{{ path('app_somme',{ a:1000, b:2000}) }}">Aller vers somme</a>
+   <img src="{{ asset('images/iset.jpeg')}}">
 {% endblock %}
