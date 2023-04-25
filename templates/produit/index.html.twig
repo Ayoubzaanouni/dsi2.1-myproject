@@ -12,6 +12,7 @@
     <tr>
       <th scope="col">id</th>
       <th scope="col">Nom</th>
+      <th scope="col">Actions</th>
      
     </tr>
   </thead>
@@ -22,6 +23,9 @@
         <tr>
       <th scope="row">{{ produit.id }}</th>
       <td>{{ produit.nom }}</td>
+      <td><a href='{{ path("app_produit_one",{id:produit.id})}}'>Detail</a>
+          - <a href='{{ path("app_produit_delete",{id:produit.id})}}'>Delete</a>
+      </td>
       
     </tr>
     {% endfor %}
