@@ -1,0 +1,15 @@
+{% extends 'base2.html.twig' %}
+{% block body %}
+	<div class="container">
+
+
+		<h1>
+			Ajout d'un nouveau fournisseur
+		</h1>
+		{{ form_start(formf)}}
+		{{ form_widget(formf)}}
+		<input type="submit" value="ajouter">
+		{{ form_end(formf)}}
+	</div>
+
+{% endblock %}

@@ -2,9 +2,14 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Fournisseur;
+use App\Form\FournisseurType;
+use App\Form\Fournisseur2Type;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MainController extends AbstractController
 {
@@ -54,5 +59,30 @@ class MainController extends AbstractController
             'nb1'=> $a, 'nb2' => $b, 'som'=> $somme
         ]);
     }
-    
+    #[Route('/four/add', name: 'app_four_add')]
+    public function add(EntityManagerInterface $em,Request $request): Response
+    {
+        // creation de l'entite
+        $f = new Fournisseur();
+        //creation du formulaire 
+        $form = $this->createForm(Fournisseur2Type::class, $f);
+
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            // $form->getData() holds the submitted values
+            // but, the original `$task` variable has also been updated
+            $f = $form->getData();
+            $em->persist($f);
+            $em->flush();
+            // ... perform some action, such as saving the task to the database
+
+            return $this->redirectToRoute('app_fournisseur_index');
+        }
+
+
+        return $this->render('main/fouradd.html.twig', ['formf'=>$form
+            
+        ]);
+    }
 }
